@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hughes Woodfire Pizzeria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Navigation and Cart -->
+    <header class="fixed-header">
+        <div class="logo">
+            <h1>Hughes Woodfire Pizzeria</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="cart-icon">
+                    <a href="#" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i> Basket (<span id="cart-count">0</span>)</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Authentic Neapolitan Pizza</h2>
+            <p>Handcrafted with fresh ingredients and baked in our woodfire oven for that perfect char and flavor.</p>
+            <a href="#menu" class="btn">View Menu & Order</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <p>Discover our selection of classic and specialty Neapolitan pizzas, priced from £9.99 to £14.99. Add to basket to order online!</p>
+        <div class="menu-grid">
+            <div class="menu-item" data-name="Margherita" data-price="9.99">
+                <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=800&q=80" alt="Margherita Pizza">
+                <h3>Margherita</h3>
+                <p>Classic Neapolitan with San Marzano tomato sauce, fresh mozzarella, basil leaves, and a drizzle of olive oil.</p>
+                <span>£9.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+            <div class="menu-item" data-name="Pepperoni" data-price="11.99">
+                <img src="https://images.unsplash.com/photo-1604382354936-18a8a9d3b32c?auto=format&fit=crop&w=800&q=80" alt="Pepperoni Pizza">
+                <h3>Pepperoni</h3>
+                <p>Tomato sauce, mozzarella, spicy pepperoni slices for a kick of heat.</p>
+                <span>£11.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+            <div class="menu-item" data-name="Vegetariana" data-price="12.99">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Vegetariana Pizza">
+                <h3>Vegetariana</h3>
+                <p>Tomato sauce, mozzarella, bell peppers, onions, mushrooms, olives, and cherry tomatoes.</p>
+                <span>£12.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+            <div class="menu-item" data-name="Quattro Formaggi" data-price="13.99">
+                <img src="https://images.unsplash.com/photo-1458644267420-66bccd82fbeb?auto=format&fit=crop&w=800&q=80" alt="Quattro Formaggi Pizza">
+                <h3>Quattro Formaggi</h3>
+                <p>A cheese lover's dream: mozzarella, gorgonzola, parmesan, and goat cheese.</p>
+                <span>£13.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+            <div class="menu-item" data-name="Diavola" data-price="12.99">
+                <img src="https://images.unsplash.com/photo-1534352956036-ee5a7636f9bb?auto=format&fit=crop&w=800&q=80" alt="Diavola Pizza">
+                <h3>Diavola</h3>
+                <p>Tomato sauce, mozzarella, spicy salami, chili flakes for extra spice.</p>
+                <span>£12.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+            <div class="menu-item" data-name="Prosciutto e Rucola" data-price="14.99">
+                <img src="https://images.unsplash.com/photo-1552539618-7eec9f4c0aa8?auto=format&fit=crop&w=800&q=80" alt="Prosciutto e Rucola Pizza">
+                <h3>Prosciutto e Rucola</h3>
+                <p>Tomato sauce, mozzarella, prosciutto ham, fresh arugula, parmesan shavings, and balsamic glaze.</p>
+                <span>£14.99</span>
+                <button class="add-to-cart">Add to Basket</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Hughes Woodfire Pizzeria is a family-run business dedicated to bringing the authentic taste of Naples to your table. Our pizzas are made with the finest imported ingredients, dough fermented for 48 hours, and baked in a traditional woodfire oven at over 900°F for that signature blistered crust and smoky flavor.</p>
+        <p>Founded in 2023 by pizza enthusiast Alex Hughes, we blend Italian tradition with local flair to create unforgettable meals. Join us for a slice of Italy!</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch for reservations, catering, or questions.</p>
+        <form id="contact-form" onsubmit="validateForm(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: info@hugheswoodfirepizzeria.com</p>
+            <p>Phone: +44 1234 567890</p>
+            <p>Address: 123 High Street, London, UK</p>
+        </div>
+    </section>
+
+    <!-- Basket Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2>Your Basket</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: £<span id="cart-total">0.00</span></p>
+            <form id="checkout-form" action="https://formspree.io/f/{your_form_id}" method="POST" onsubmit="prepareOrder(event)">
+                <input type="hidden" name="order_details" id="order_details">
+                <label for="checkout-name">Name:</label>
+                <input type="text" id="checkout-name" name="name" required>
+                <label for="checkout-email">Email:</label>
+                <input type="email" id="checkout-email" name="email" required>
+                <label for="checkout-address">Delivery Address:</label>
+                <input type="text" id="checkout-address" name="address" required>
+                <label for="checkout-phone">Phone:</label>
+                <input type="tel" id="checkout-phone" name="phone" required>
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Hughes Woodfire Pizzeria. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
